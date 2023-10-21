@@ -12,6 +12,9 @@ function ExpenseComponent(props){
     // const month = props.expense.date.toLocaleString('en-US', {month: 'long'});
     // const day = props.expense.date.toLocaleString('en-US', {day: '2-digit'});
     // const year = props.expense.date.getFullYear();
+    const clickHandler = () => {
+        console.log("Hello There");
+    };
 
     return (
         <Card className="expense-item">
@@ -20,6 +23,7 @@ function ExpenseComponent(props){
                 <h2>{props.expense.title}</h2>
                 <div className='expense-item__price'>${props.expense.amount}</div>
             </div>
+            <button onClick={clickHandler}> Click Here </button>
         </Card>
     );
 }
