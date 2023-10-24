@@ -47,7 +47,7 @@ const ExpenseForm = () => {
             setEnteredAmount(value);
         }
         else {
-            setEnteredAmount(value);
+            setEnteredDate(value);
         }
     };
 
