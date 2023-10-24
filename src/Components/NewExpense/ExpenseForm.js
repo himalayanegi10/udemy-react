@@ -59,6 +59,9 @@ const ExpenseForm = () => {
             date: new Date(enteredDate)
         };
         console.log(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
     };
 
     return (
@@ -68,19 +71,19 @@ const ExpenseForm = () => {
             <div className="new-expense__controls">
                 <div className="new-expense__controls">
                     <label> Title </label>
-                    <input type="text" onChange={(event) => {
+                    <input type="text" value={enteredTitle} onChange={(event) => {
                         sharedHandler('title', event.target.value);
                     }}/>
                 </div>
                 <div className="new-expense__controls">
                     <label> Amount </label>
-                    <input type="number" min="0.01" step="0.01" onChange={(event) => {
+                    <input type="number" min="0.01" step="0.01" value={enteredAmount} onChange={(event) => {
                         sharedHandler('amount', event.target.value);
                     }}/>
                 </div>
                 <div className="new-expense__controls">
                     <label> Date </label>
-                    <input type="date" min="2015-01-01" max="2030-01-01" onChange={(event) => {
+                    <input type="date" min="2015-01-01" max="2030-01-01" value={enteredDate} onChange={(event) => {
                         sharedHandler('date', event.target.value);
                     }}/>
                 </div>
