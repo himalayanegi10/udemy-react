@@ -24,10 +24,9 @@ function Expense (props) {
     return (
         <Card className='expenses'>
             <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
-            <ExpenseComponent expense={expenseArray[0]}/>
-            <ExpenseComponent expense={expenseArray[1]}/>
-            <ExpenseComponent expense={expenseArray[2]}/>
-            <ExpenseComponent expense={expenseArray[3]}/>
+            {expenseArray.map(exp => {
+                return <ExpenseComponent expense={exp}/>
+            })}
         </Card>
     );
 }
