@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Expense from './Components/Expense';
+import Expense from './Components/Expense/Expense';
+import NewExpense from './Components/NewExpense/NewExpense';
 
 // function App() {
 //   return (
@@ -46,9 +47,18 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addingNewExpenseHandler = (data) => {
+    const newData = {
+      ...data,
+    };
+    console.log(newData);
+  };
+
   return (
     <div>
       <h1>Himalaya's Expense Tracker</h1>
+      <NewExpense onAddingNewExpense={addingNewExpenseHandler}/>
       <Expense expenses={expenses} />
     </div>
   );
