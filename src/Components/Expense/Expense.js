@@ -25,9 +25,10 @@ function Expense (props) {
         <Card className='expenses'>
             <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
             {expenseArray.map(exp => {
-                return <ExpenseComponent expense={exp}/>
+                return <ExpenseComponent key={exp.id} expense={exp}/>
             })}
         </Card>
+        // key={exp.id} is a unique id which NEEDS TO BE ADDED to ExpenseComponent
     );
 }
 
