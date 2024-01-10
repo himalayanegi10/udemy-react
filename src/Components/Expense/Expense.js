@@ -4,6 +4,8 @@ import Card from '../UI/Card';
 import React, {useState}  from 'react';
 import ExpenseFilter from '../ExpensesFilter/ExpensesFilter';
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
+import ExpenseList from './ExpenseList';
+
 
 function Expense (props) {
     // return React.createElement(Card, {className: 'expenses'},
@@ -24,19 +26,13 @@ function Expense (props) {
         setFilterYear(parseInt(year));
     };
 
-    let conditionalExpenseJSX = <div> <p> No Records were found</p> </div>;
-
-    if (expenseArray.length > 0){
-        conditionalExpenseJSX = expenseArray.map(exp => {
-            return <ExpenseComponent key={exp.id} expense={exp}/>
-        });
-    }
-
     return (
-        <Card className='expenses'>
-            <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
-            {conditionalExpenseJSX}
-        </Card>
+        <li>
+            <Card className='expenses'>
+                <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
+                <ExpenseList expenseArray={expenseArray} />
+            </Card>
+        </li>
         // key={exp.id} is a unique id which NEEDS TO BE ADDED to ExpenseComponent
     );
 }
