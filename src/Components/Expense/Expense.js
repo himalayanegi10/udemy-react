@@ -24,12 +24,18 @@ function Expense (props) {
         setFilterYear(parseInt(year));
     };
 
+    let conditionalExpenseJSX = <div> <p> No Records were found</p> </div>;
+
+    if (expenseArray.length > 0){
+        conditionalExpenseJSX = expenseArray.map(exp => {
+            return <ExpenseComponent key={exp.id} expense={exp}/>
+        });
+    }
+
     return (
         <Card className='expenses'>
             <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
-            {expenseArray.map(exp => {
-                return <ExpenseComponent key={exp.id} expense={exp}/>
-            })}
+            {conditionalExpenseJSX}
         </Card>
         // key={exp.id} is a unique id which NEEDS TO BE ADDED to ExpenseComponent
     );
