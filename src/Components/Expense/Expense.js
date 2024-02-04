@@ -5,6 +5,7 @@ import React, {useState}  from 'react';
 import ExpenseFilter from '../ExpensesFilter/ExpensesFilter';
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter';
 import ExpenseList from './ExpenseList';
+import ExpenseChart from './ExpenseChart';
 
 
 function Expense (props) {
@@ -30,6 +31,7 @@ function Expense (props) {
         <li>
             <Card className='expenses'>
                 <ExpensesFilter onSelectYear={onSelectMethod} selectedYear={filterYear}/>
+                <ExpenseChart expenses={expenseArray} />
                 <ExpenseList expenseArray={expenseArray} />
             </Card>
         </li>
