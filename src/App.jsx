@@ -1,5 +1,6 @@
 import ReactConceptImg from './assets/react-core-concepts.png';
 import ComponentsImg from './assets/components.png';
+import { CORE_CONCEPTS } from './data';
 
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
@@ -22,11 +23,19 @@ const Header = () => {
   );
 };
 
-const CoreConcept = (props) => {
+// const CoreConcept = (props) => {
+//   return (<li>
+//     <img src={props.image} alt={props.title} />
+//     <h3>{props.title}</h3>
+//     <p>{props.description}</p>
+//   </li>);
+// };
+
+const CoreConcept = ({image, title, description}) => {
   return (<li>
-    <img src={props.image} alt={props.title} />
-    <h3>{props.title}</h3>
-    <p>{props.description}</p>
+    <img src={image} alt={title} />
+    <h3>{title}</h3>
+    <p>{description}</p>
   </li>);
 };
 
@@ -39,7 +48,7 @@ function App() {
         <section id='core-concepts'>
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept image={ComponentsImg} 
+            {/* <CoreConcept image={ComponentsImg} 
             title="Components"
             description="The core UI building block"
             />
@@ -54,7 +63,20 @@ function App() {
             <CoreConcept image={ComponentsImg} 
             title="Components"
             description="The core UI building block"
-            />
+            /> */}
+
+            <CoreConcept {...CORE_CONCEPTS[0]}/>
+            <CoreConcept {...CORE_CONCEPTS[1]}/>
+            <CoreConcept {...CORE_CONCEPTS[2]}/>
+            <CoreConcept {...CORE_CONCEPTS[3]}/>
+
+            {/* {
+              CORE_CONCEPTS.map(object => <CoreConcept 
+                                image={object.image}
+                                title={object.title}
+                                description={object.description}
+                                />)
+            } */}
 
           </ul>
         </section>
